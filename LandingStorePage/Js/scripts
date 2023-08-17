@@ -1,0 +1,44 @@
+const colors = [
+    '#aed9eb',
+      '#f0c7ce',
+        '#f2aeca',
+          '#e6aeeb',
+            '#c6a9f6',
+              '#b8baf7',
+                '#9eaff9',
+                  '#81bdfb',
+                    '#6bcffb',
+                      '#6adde9',
+                        '#8de5de',
+                          '#7ad9c2',
+                            '#8be4a8',
+                              '#b5ed8b',
+                                '#f0e093',
+                                  '#f7d796',
+                                    '#f5bd9a',
+                                      '#f3b6b6'
+]
+
+setInterval(() => {
+  const color = colors[Math.floor(Math.random()*colors.length)]
+  document.body.style.setProperty('--background', color)
+}, 5000)
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menuButton');
+    const menuList = document.getElementById('menuList');
+    
+    menuButton.addEventListener('click', () => {
+      menuList.classList.toggle('show');
+    });
+    
+    // Cierra el menú cuando se hace clic en un enlace
+    const menuLinks = menuList.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuList.classList.remove('show');
+      });
+    });
+  });
